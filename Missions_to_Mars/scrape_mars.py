@@ -25,8 +25,11 @@ def scrape():
     browser.quit()
 
     url = 'https://galaxyfacts-mars.com'
-    table = pd.read_html(url)[1]
-    table.rename(columns={0:'Fact',1:'Value'},inplace=True)
+    table = pd.read_html(url)[0]
+    header = table.iloc[0]
+    table = table[1:]
+    table.columns=header
+    table
 
     html_table= table.to_html()
     html_table=html_table.replace('\n', '')
