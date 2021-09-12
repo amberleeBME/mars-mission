@@ -50,7 +50,7 @@ def scrape():
         title = each.h3.text    
         response = requests.get(f'https://marshemispheres.com/{each.a["href"]}')
         soup = bs(response.text,'lxml')
-        hemiResult=soup.find_all('dd')[1].a['href']
+        hemiResult=soup.find_all('li')[0].a['href']
         hemisphere_image_urls.append({
             "title":title[0:-9],
             "img_url":f'https://marshemispheres.com/{hemiResult}'
