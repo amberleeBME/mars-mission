@@ -8,7 +8,7 @@ from webdriver_manager.chrome import ChromeDriverManager
 
 def scrape():
     executable_path = {'executable_path': ChromeDriverManager().install()}
-    browser = Browser('chrome', **executable_path, headless=False)
+    browser = Browser('chrome', **executable_path, headless=True)
     url = 'http://redplanetscience.com'
     browser.visit(url)
     soup = bs(browser.html, 'lxml')
