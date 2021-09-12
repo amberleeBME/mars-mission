@@ -47,7 +47,7 @@ def scrape():
             "title":title[0:-9],
             "img_url":f'https://marshemispheres.com/{hemiResult}'
             })
-    data = {
+    mars_data = {
         'latestTitle':latestTitle,
         'latestTeaser':latestTeaser,
         'featuredImage':featured_image_url,
@@ -55,4 +55,4 @@ def scrape():
         'hemishpereDict':hemisphere_image_urls
     }
     
-    return data
+    return mars_data
