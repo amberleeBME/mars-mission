@@ -28,12 +28,17 @@ def scrape():
     table = pd.read_html(url)[0]
     header = table.iloc[0]
     table = table[1:]
-    table.columns=header
-    table
+    ind=table[0].tolist()
+    marsList = table[1].tolist()
+    earthList = table[2].tolist()
+    marsDict = {'Mars':marsList,
+                'Earth':earthList}
+    table=pd.DataFrame(marsDict,index=ind)
+    
 
     html_table= table.to_html()
     html_table=html_table.replace('\n', '')
-    html_table
+    
 
     url = 'https://marshemispheres.com/'
     response = requests.get(url)
